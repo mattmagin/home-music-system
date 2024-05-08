@@ -2,7 +2,7 @@ name: Publish images to Docker Hub
 on: [workflow_dispatch]
 
 jobs:
-    publish_sonos_api:
+  publish_sonos_api:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Node.js 20
