@@ -29,6 +29,7 @@ var settings = {
     clientId: process.env.SONOS_CLIENT_ID,
     clientSecret: process.env.SONOS_CLIENT_SECRET,
   },
+  disableIpDiscovery: true,
 };
 
 // // load user settings
