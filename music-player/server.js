@@ -35,6 +35,7 @@ const player = async (rfidCode) => {
   let { spotifyUri, spotifyType } = selected[0];
   spotifyUri = spotifyUri[0].value;
   spotifyType = spotifyType[0].value.value;
+  console.log(spotifyUri, spotifyType);
 
   return makeSonosApiRequest("Living%20Room", spotifyUri, spotifyType);
 };
