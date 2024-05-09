@@ -21,10 +21,11 @@ const io = new Server(server, {
 });
 const PORT = 3000;
 server.listen(PORT);
+console.log("Server is running");
 
-// app.get("/", (req, res) => {
-//   res.send("<h1>Hello World2</h1>");
-// });
+app.get("/", (req, res) => {
+  res.send("<h1>Music Player Server</h1>");
+});
 
 const player = async (rfidCode) => {
   const rfidCodes = await readFromDatabase(process.env.SPOTIFY_CODES_TABLE_ID);
