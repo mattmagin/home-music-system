@@ -13,6 +13,7 @@ obj/
 *.crt
 *.pfx
 *.key
+.env
 
 # VS
 .vscode

@@ -7,6 +7,8 @@ import { config } from "dotenv";
 import makeSonosApiRequest from "./makeSonosApiRequest.js";
 import readFromDatabase from "./readFromDatabase.js";
 
+config();
+
 const app = express();
 app.use(cors());
 
