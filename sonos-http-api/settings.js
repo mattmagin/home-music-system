@@ -31,10 +31,10 @@ var settings = {
   },
 };
 
-// load user settings
-const settingsFileFullPath = path.resolve(__dirname, "settings.json");
-const userSettings = tryLoadJson(settingsFileFullPath);
-merge(settings, userSettings);
+// // load user settings
+// const settingsFileFullPath = path.resolve(__dirname, "settings.json");
+// const userSettings = tryLoadJson(settingsFileFullPath);
+// merge(settings, userSettings);
 
 logger.debug(settings);
 
