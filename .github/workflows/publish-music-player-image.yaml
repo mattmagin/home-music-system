@@ -1,5 +1,10 @@
 name: Publish Music Player Image to Docker Hub
-on: [workflow_dispatch]
+on: push:
+  branches:
+    - main
+    paths:
+      - "music-player/**"
+  workflow_dispatch:
 
 jobs:
   publish_music_player:

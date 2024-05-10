@@ -1,5 +1,10 @@
 name: Publish Sonos Api to Docker Hub
-on: [workflow_dispatch]
+on: push:
+  branches:
+    - main
+    paths:
+      - "sonos-http-api/**"
+  workflow_dispatch:
 
 jobs:
   publish_sonos_api:
