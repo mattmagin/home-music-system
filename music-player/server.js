@@ -57,7 +57,7 @@ io.sockets.on("connection", (socket) => {
       return;
     }
 
+    console.log("Received data: ", rfidCode, sonosRoom);
     player(rfidCode, sonosRoom);
-    console.log("Message is received :", message);
   });
 });
