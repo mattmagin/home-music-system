@@ -8,8 +8,8 @@ const test = {
 
 const makeSonosApiRequest = (room, uri, type) => {
   const options = {
-    hostname: process.env.HOSTNAME,
-    port: process.env.PORT,
+    hostname: process.env.SONOS_HTTP_API_HOSTNAME,
+    port: process.env.SONOS_HTTP_API_PORT,
     path: `/${room}/spotify/now/spotify:${test[type]}:${uri}`,
     method: "GET",
   };
