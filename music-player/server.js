@@ -51,10 +51,13 @@ io.sockets.on("connection", (socket) => {
     connections.splice(connections.indexOf(socket), 1);
   });
 
-  socket.on("rfidCode", (message) => {
-    const { rfidCode, location } = JSON.parse(message);
+  socket.on("playerRecord", ({ rfidCode, sonosRoom }) => {
+    if (!rfidCode || !sonosRoom) {
+      console.log("Invalid data");
+      return;
+    }
 
-    player(rfidCode, location);
+    player(rfidCode, sonosRoom);
     console.log("Message is received :", message);
   });
 });
