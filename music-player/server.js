@@ -51,7 +51,7 @@ io.sockets.on("connection", (socket) => {
     connections.splice(connections.indexOf(socket), 1);
   });
 
-  socket.on("playerRecord", ({ rfidCode, sonosRoom }) => {
+  socket.on("playRecord", ({ rfidCode, sonosRoom }) => {
     if (!rfidCode || !sonosRoom) {
       console.log("Invalid data");
       return;
