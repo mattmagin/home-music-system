@@ -1,16 +1,14 @@
 #!/usr/bin/env python
 
-import os
 import RPi.GPIO as GPIO
 from mfrc522 import SimpleMFRC522
 import socketio
-from dotenv import load_dotenv
+from time import sleep
 
-load_dotenv()
+sonosRoom = "Living Room"
 
 with socketio.SimpleClient() as sio:
-    sio.connect(os.getenv("MUSIC_PLAYER_URL"))
-
+    sio.connect("http://192.168.1.243:5004")
     while True:
         try:
             reader = SimpleMFRC522()
@@ -20,9 +18,9 @@ with socketio.SimpleClient() as sio:
                 rfid = reader.read()[0]
                 print("The ID for this card is:", rfid)
 
-                message = {rfidCode: rfid, sonosRoom: os.getenv("SONOS_ROOM")}
+                message = {"rfidCode": rfid, "sonosRoom": "Living Room"}
                 sio.emit("playRecord", message)
-
+                sleep(3)
         except Exception as e:
             print(e)
             pass
