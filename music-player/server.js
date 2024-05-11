@@ -31,7 +31,12 @@ app.get("/", (req, res) => {
 
 const player = async (rfidCode, location) => {
   const rfidCodes = await readFromDatabase(process.env.BASEROW_SPOTIFY_CODES_TABLE_ID);
-  const selected = rfidCodes.filter((code) => code["rfid-code"] === rfidCode);
+  console.log(rfidCodes);
+
+  const selected = rfidCodes.filter((code) => code["rfid-code"].toString() === rfidCode.toString());
+
+  console.log(selected);
+
   let { spotifyUri, spotifyType } = selected[0];
   spotifyUri = spotifyUri[0].value;
   spotifyType = spotifyType[0].value.value;
@@ -40,7 +45,13 @@ const player = async (rfidCode, location) => {
   return makeSonosApiRequest(location, spotifyUri, spotifyType);
 };
 
+//TODO: rfid not found handling
+//TODO: Err address not found err
+
 const connections = [];
+
+// const msg = { rfidCode: 627172012986, sonosRoom: "Living%20Room" };
+// player(msg.rfidCode, msg.sonosRoom);
 
 io.sockets.on("connection", (socket) => {
   // console.log(socket);
