@@ -69,6 +69,6 @@ io.sockets.on("connection", (socket) => {
     }
 
     console.log("Received data: ", rfidCode, sonosRoom);
-    player(rfidCode, sonosRoom);
+    player(rfidCode, encodeURIComponent(sonosRoom));
   });
 });
